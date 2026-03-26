@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+                     <!--! title and logo link  -->
+    <title>Green Earth</title>
+    <link rel="shortcut icon" href="./assets/about.png" type="image/x-icon">
+
+                          <!-- !font awsome  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+                <!--! font integration  -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+                 <!-- !tailwind and daisyUi  -->
+<link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<!-- toast  -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+                         <!-- !stylesheet -->
+ <link rel="stylesheet" href="style.css">               
+</head>
+<body class="inter">
+
+
+
+<!-- !navber section design -->
+<header>
+<div class="navbar bg-[#15803D] shadow-sm px-4 lg:px-10">
+
+  <div class="navbar-start">
+    <div class="dropdown">
+      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"/>
+        </svg>
+      </div>
+
+      <ul tabindex="-1"
+        class="menu menu-sm dropdown-content bg-[#15803D] rounded-box mt-3 w-40 p-2 shadow text-white">
+        <li><a>About</a></li>
+        <li onclick="loadTrees()"><a>Gallery</a></li>
+        <li><a>Plant A Tree</a></li>
+      </ul>
+    </div>
+
+    <span class="btn btn-ghost text-xl text-white">Green Earth</span>
+  </div>
+
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1 text-white navbar">
+      <li><a>About</a></li>
+      <li onclick="loadTrees()"><a>Gallery</a></li>
+      <li><a>Plant A Tree</a></li>
+    </ul>
+  </div>
+
+
+  <div class="navbar-end flex  gap-4">
+    <!-- !wishlist counter  -->
+  <div id="wishlist_icon" class="relative cursor-pointer">
+  <i class="fa-solid fa-heart text-2xl text-white"></i>
+  <span id="wishlist_count"
+    class="absolute -top-2 -right-3 bg-red-500 text-white text-xs px-2 rounded-full">0</span>
+</div>
+<div onclick="displayCartItems()"  class="relative">
+
+<i onclick="displayCartItems()" class="fa-solid fa-cart-shopping text-2xl"></i>
+<span id="cart_count"
+class="absolute -top-2 -right-3 bg-red-500 text-white text-xs px-2 rounded-full">
+0
+</span>
+
+
+
+
+</div>
+
+    
+    <a class="btn rounded-2xl bg-[#FACC15] text-green-700">Plant a Tree</a>
+  </div>
+
+</div>
+</header>
+<!--* navber section end here  -->
+
+<!-- &Banner Section Start From Here -->
+<section class="bg-[#CFF0DC] py-10">
+
+<div class="flex flex-col lg:flex-row w-11/12 max-w-7xl mx-auto items-center justify-between gap-6">
+
+  <!-- image 1 -->
+  <img src="./assets/hero-leaf1.png"
+  class="w-32 md:w-50 lg:w-102" alt="">
+
+  <!-- content -->
+  <div class="flex flex-col gap-4 justify-center items-center text-center max-w-xl">
+
+    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold">
+      Plant a Tree, Grow a Future
+    </h1>
+
+    <p class="text-[#1F2937] text-sm md:text-base">
+      Join our mission to plant 1 million trees and make the Earth greener for future generations.
+    </p>
+
+    <button class="btn rounded-2xl bg-[#FACC15] text-green-700">
+      Get Involved
+    </button>
+
+  </div>
+
+  <!-- image 2 -->
+  <img src="./assets/hero-leaf2.png"
+  class="w-32 md:w-50 lg:w-102" alt="">
+
+</div>
+
+</section>
+<!-- &Banner Section end  Here -->
+<!--^ main section  -->
+<main class="bg-[#F0FDF4] min-h-screen">
+ <h1 id="tittle_container" class="pt-5 text-2xl font-bold text-center">Choose Your Trees</h1>
+ <!-- !Auto animation  -->
+  <div class="text-center py-3" id="auto_Animation">
+    <h1 class="text-lg font-bold">
+      To see all The Trees Click on  <br><br>
+      <span onclick="loadTrees()" class=" mx-4 gallery-text text-green-700">Gallery</span>
+    </h1>
+  </div>
+  
+  <!-- !</search> -->
+
+<div class="flex justify-center my-3 ">
+  <input type="search" name="" id="search_Input" class="rounded-2xl text-center font-bold border-red-600 border-2 p-2 bg-blue-300 bor text-red-700 hidden"  placeholder="Search Your Tree..." >
+</div>
+<!-- !Sorting dropdown -->
+<div id="sorting" class="flex justify-center my-3 hidden">
+  <select id="sort_select" class="select select-bordered">
+    <option value="">Sort By</option>
+    <option value="low">Price Low → High</option>
+    <option value="high">Price High → Low</option>
+    <option value="name">Name A → Z</option>
+  </select>
+</div>
+
+
+<!-- !coupon -->
+ <div id="coupon" class="mt-4 flex gap-2 justify-end mx-10 hidden">
+  <div class="overflow-hidden w-full bg-green-100 py-2">
+  <p class="animate-move text-lg font-semibold text-green-800">
+    🌱 Special offer!To get extra discount put the coupon code 🌱
+  </p>
+</div>
+  <input id="coupon_input" type="text" placeholder="Enter Coupon"
+    class="input input-bordered " />
+  <button id="apply" onclick="applyCoupon()" class="btn bg-green-700 text-white">
+    Apply
+  </button>
+</div>
+
+
+
+
+  <section class="grid grid-cols-1 lg:grid-cols-5 gap-6 w-11/12 max-w-8xl mx-auto tan py-10">
+
+    <!--! Categories -->
+    <div id="catagori" class="bg-white p-4 rounded-lg shadow lg:col-span-1  hidden" >
+      <h3 class="text-xl font-bold mb-4">Categories</h3>
+      <div id="plant_lavel_Container">
+     
+      </div>
+    </div>
+
+    <!-- !Plants -->
+ <div id="plant_Container" 
+class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+</div>
+
+<!--! wishlist modal -->
+<dialog id="wishlist_modal" class="modal">
+  <div class="modal-box w-11/12 max-w-md">
+    <h2 class="text-xl font-bold mb-3">Your Wishlist</h2>
+    <div id="wishlist_container" class="flex flex-col gap-2"></div>
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+<!--! modal OUTSIDE -->
+<dialog id="my_modal_4" class="modal">
+  <div class="modal-box w-11/12 max-w-md">
+
+    <div id="modal_container"></div>
+
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn">Close</button>
+      </form>
+    </div>
+
+  </div>
+</dialog>
+
+
+
+   <!-- !hidden Cart -->
+<div id="cart" class="bg-white p-4 rounded-lg shadow lg:col-span-1 mt-6 lg:mt-0 hidden">
+<!-- !PROGREESS BAR  -->
+ <div class="mt-4">
+  <p id="progress_text" class="text-sm text-gray-600">ProgreessBAR</p>
+  <progress id="progress_bar" class="progress progress-success w-full" value="0" max="12000"></progress>
+</div>
+<h3 class="font-bold mb-3">Your Cart</h3>
+<div id="cart_container"></div>
+<div class="flex justify-between ">
+<div class="flex flex-col">
+  <p class="text-xl font-bold mt-4">
+Total Price:&#2547; 
+</p>
+   <p class="text-xl font-bold mt-4 ">
+Discount Quantity: <span class="text-red-500" id="Discount_quantity"></span> 
+</p>
+
+<p id="coupon_msg" class="text-sm mt-2"></p>
+  <p class="text-xl font-bold mt-4">
+<span id="after">After Discount Total Price:</span>&#2547;  <span class="text-red-500" id="Aftertotal"></span>
+</p>
+</div>
+<span class="text-xl font-bold mt-4" id="cart_total"> 0</span>
+</div>
+</div>
+
+
+
+</section>
+
+<!-- !Banner cards -->
+<section class="bg-[#CFF0DC] py-10">
+
+<div class="w-11/12 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 ">
+
+  <!-- Card 1 -->
+  <div class="bg-white rounded-xl shadow-md p-6 flex items-center gap-4 hover:shadow-xl transition ">
+    <img src="./assets/about.png" class="w-16">
+    <div>
+      <h2 class="text-xl font-bold text-green-700">Explore Tree Gallery</h2>
+      <p class="text-gray-600 text-sm mt-1">
+        Discover different types of trees and learn about their benefits.
+      </p>
+
+      <button onclick="loadTrees()" class="btn btn-sm mt-3 bg-green-700 text-white">
+        View Gallery
+      </button>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="bg-white rounded-xl shadow-md p-6 flex items-center gap-4 hover:shadow-xl transition">
+    <img src="./assets/about.png" class="w-16">
+    <div>
+      <h2 class="text-xl font-bold text-green-700">Plant a Tree</h2>
+      <p class="text-gray-600 text-sm mt-1">
+        Join our mission to plant trees and make the Earth greener.
+      </p>
+
+      <button class="btn btn-sm mt-3 bg-yellow-400 text-green-800">
+        Get Started
+      </button>
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- !footer section start here  -->
+<footer class="bg-[#14532D] p-5">
+  <p class="text-center text-white text-sm sm:text-base">
+    © 2025 Green Earth. All Rights Reserved.
+  </p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

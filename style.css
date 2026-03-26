@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+.inter{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+.active{
+    background-color:rgb(155, 175, 42);
+}
+.hover-3d{
+position:relative;
+perspective:10000px;
+}
+
+.hover-3d .card{
+transition:transform .4s;
+}
+
+.hover-3d:hover .card{ transform:rotateY(10deg) rotateX(6deg) scale(1.05); -webkit-transform:rotateY(10deg) rotateX(6deg) scale(1.05); -moz-transform:rotateY(10deg) rotateX(6deg) scale(1.05); -ms-transform:rotateY(10deg) rotateX(6deg) scale(1.05); -o-transform:rotateY(10deg) rotateX(6deg) scale(1.05);
+}
+.gallery-text{
+    display:inline-block;
+    animation: zoom 1.5s ease-in-out infinite;
+}
+
+@keyframes zoom{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(2.5);
+        -webkit-transform: scale(2.5);
+        -moz-transform: scale(2.5);
+        -ms-transform: scale(2.5);
+        -o-transform: scale(2.5);
+}
+    100%{
+        transform: scale(1);
+    }
+}
+@keyframes moveText {
+  0% {
+    transform: translateX(280%);
+    -webkit-transform: translateX(280%);
+    -moz-transform: translateX(280%);
+    -ms-transform: translateX(280%);
+    -o-transform: translateX(280%);
+}
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+.animate-move {
+  display: inline-block;
+  white-space: nowrap;
+  animation: moveText 20s linear infinite;
+  -webkit-animation: moveText 20s linear infinite;
+}
+
+ .toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  min-width: 250px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 500;
+  /* display: flex; */
+  align-items: center;
+  gap: 10px;
+
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+  opacity: 0;
+  transform: translateX(120px);
+  transition: all 0.4s ease;
+  z-index: 9;
+}
+
+/* animation */
+.toast.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* types */
+.toast.success {
+  background: rgba(34,197,94,0.9);
+}
+
+.toast.error {
+  background: rgba(239,68,68,0.9);
+}
+.toast:nth-child(2) { top: 80px; }
+.toast:nth-child(3) { top: 140px; }
