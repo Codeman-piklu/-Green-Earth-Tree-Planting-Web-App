@@ -85,7 +85,7 @@ This project demonstrates **front-end development skills**, including API integr
 1. Clone the repository:
 
 ```bash
-git clone <your-repo-url>
+git clone <https://github.com/Codeman-piklu/-Green-Earth-Tree-Planting-Web-App.git>
 ```
 
 2. Navigate into the project:
@@ -112,7 +112,7 @@ cd green-earth
 
 ## 🔗 Live Demo
 
-[Green Earth Demo](#)
+[https://codeman-piklu.github.io/-Green-Earth-Tree-Planting-Web-App/](#)
 
 ---
 
@@ -131,8 +131,8 @@ cd green-earth
 
 **Piklu Shil** – Frontend Developer
 
-* GitHub: [your-github](#)
-* LinkedIn: [your-linkedin](#)
+* GitHub: [https://github.com/Codeman-piklu/-Green-Earth-Tree-Planting-Web-App/settings](#)
+* LinkedIn: [https://www.linkedin.com/in/piklu-shil-6610a6310/?skipRedirect=true](#)
 
 ---
 
