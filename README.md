@@ -1,7 +1,7 @@
 
 # 🌱 Green Earth – Tree Planting Web App
 
-![Website Banner](https://via.placeholder.com/1200x300?text=Green+Earth+Banner)
+[![Website Banner](https://codeman-piklu.github.io/-Green-Earth-Tree-Planting-Web-App//1200x300?text=Green+Earth+Banner)](https://codeman-piklu.github.io/-Green-Earth-Tree-Planting-Web-App/)
 
 A modern, interactive **tree gallery and planting web application** built with **HTML, TailwindCSS, DaisyUI, and JavaScript**. Explore trees, manage your cart & wishlist, apply discounts, and see detailed plant info—all with smooth animations and responsive design.
 
