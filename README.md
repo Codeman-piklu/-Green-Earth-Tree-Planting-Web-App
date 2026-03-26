@@ -73,9 +73,11 @@ This project demonstrates **front-end development skills**, including API integr
 
 ## 📸 Screenshots
 
+![Banner](./assets/Screenshot%202026-03-26%20235155.png)
+![Banner](./assets/Screenshot%202026-03-26%20235130.png)
+![Banner](./assets/Screenshot%202026-03-26%20235516.png)
 
 
-*(Replace placeholder images with your own screenshots.)*
 
 ---
 
